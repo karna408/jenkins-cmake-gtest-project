@@ -49,11 +49,11 @@ The Tests are developped using Google Test.
 In order to install GTest on your machine, follow these instructions:
 https://www.eriksmistad.no/getting-started-with-google-test-on-ubuntu/
 
-To run the tests, go inside the test folder and run the following commands
+To run the tests,run the following commands
 
 ```bash
 
-./build.sh
+./test.sh
 
 ```
 
