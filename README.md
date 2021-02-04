@@ -51,7 +51,7 @@ https://www.eriksmistad.no/getting-started-with-google-test-on-ubuntu/
 
 To run the tests, go inside the test folder and run the following commands
 
-``bash
+```bash
 
 ./build.sh
 
