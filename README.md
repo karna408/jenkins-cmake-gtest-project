@@ -1,0 +1,1 @@
+# jenkins-cmake-gtest-project

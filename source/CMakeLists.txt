@@ -1,0 +1,38 @@
+CMAKE_MINIMUM_REQUIRED(VERSION 3.0)
+
+##################
+# Create Library #
+##################
+
+# Use SHARED or STATIC as needed
+ADD_LIBRARY(${PROJECT_NAME}_lib STATIC 
+    Addition.cpp
+    )
+
+TARGET_INCLUDE_DIRECTORIES(${PROJECT_NAME}_lib PUBLIC
+$<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/include>
+$<INSTALL_INTERFACE:include>)
+
+
+install(DIRECTORY ${CMAKE_SOURCE_DIR}/include/
+  DESTINATION include
+  FILES_MATCHING PATTERN "*.h"
+)
+
+install(TARGETS
+    ${PROJECT_NAME}_lib
+    EXPORT ${PROJECT_NAME}_libConfig
+    ARCHIVE DESTINATION lib
+    LIBRARY DESTINATION lib
+    RUNTIME DESTINATION bin
+)
+export(TARGETS
+    ${PROJECT_NAME}_lib
+    NAMESPACE ${PROJECT_NAME}::
+    FILE "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}Config.cmake"
+)
+install(EXPORT
+    ${PROJECT_NAME}_libConfig
+    DESTINATION "cmake"
+    NAMESPACE ${PROJECT_NAME}::
+)
