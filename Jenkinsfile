@@ -1,12 +1,20 @@
 pipeline{
     agent any
-
+ 
+    /*-------- CODE CLONE ------------ */
     stages{
+        stage('git pull'){
+            steps{
+             sh 'rm -rf $WORKSPACE/*'
+            checkout ([$class: 'GitSCM', branches: [[name: '*/master']],
+                       userRemoteConfigs: [[url: 'https://github.com/karna408/jenkins-cmake-gtest-project']],
+                ])
+            }
+        }
         /*--------------------------- Build Stage ----------------------- */
         stage('Build'){
             steps{
                 sh '''
-                  rm -rf $WORKSPACE
                   cd $WORKSPACE
                   sh build.sh
                   '''
