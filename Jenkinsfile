@@ -1,12 +1,12 @@
 pipeline{
     agent any
- 
-    /*-------- CODE CLONE ------------ */
+
     stages{
         /*--------------------------- Build Stage ----------------------- */
         stage('Build'){
             steps{
                 sh '''
+                  rm -rf $WORKSPACE
                   cd $WORKSPACE
                   sh build.sh
                   '''
