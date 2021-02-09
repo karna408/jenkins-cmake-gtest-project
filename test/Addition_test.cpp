@@ -16,7 +16,7 @@ TEST(TestingAddition, add) {
     zf::sample::Addition myAddition = zf::sample::Addition();
 		ASSERT_EQ(myAddition.add(1,1), 2);
 		ASSERT_NE(myAddition.add(10,10), 30);
-		ASSERT_GE(myAddition.add(10,10), 10);
+		ASSERT_GE(myAddition.add(10,10), 1);
 }
 
 TEST(TestingAddition, addID) {
