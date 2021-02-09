@@ -38,7 +38,7 @@ To build the project, run the following commands:
 It will create an install folder containing
 * The headers
 * The Cmake Configuration file 
-* The libray
+* The libray file
 
 
 
