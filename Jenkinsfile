@@ -5,9 +5,7 @@ pipeline{
     stages{
         stage('git pull'){
             steps{
-             sh 'rm -rf $WORKSPACE/*'
-            checkout ([$class: 'GitSCM', branches: [[name: '*/master']],
-                       userRemoteConfigs: [[url: 'https://github.com/karna408/jenkins-cmake-gtest-project']],
+             sh 'rm -rf $WORKSPACE/*
                 ])
             }
         }
