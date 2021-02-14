@@ -6,7 +6,6 @@ pipeline{
         stage('Build'){
             steps{
                 sh '''
-                  rm -rf $WORKSPACE/*
                   cd $WORKSPACE
                   sh build.sh
                   '''
