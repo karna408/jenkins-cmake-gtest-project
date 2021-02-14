@@ -2,6 +2,11 @@ pipeline{
     agent any
     
     stages{
+        stage('remove workspace'){
+            steps{
+                sh 'rm -rf $WORKSPACE/*'
+            }
+        }
         /*--------------------------- Build Stage ----------------------- */
         stage('Build'){
             steps{
