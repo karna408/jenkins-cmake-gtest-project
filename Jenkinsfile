@@ -1,18 +1,12 @@
 pipeline{
     agent any
- 
-    /*-------- CODE CLONE ------------ */
+    
     stages{
-        stage('git pull'){
-            steps{
-             sh 'rm -rf $WORKSPACE/*
-                ])
-            }
-        }
         /*--------------------------- Build Stage ----------------------- */
         stage('Build'){
             steps{
                 sh '''
+                  rm -rf $WORKSPACE/*
                   cd $WORKSPACE
                   sh build.sh
                   '''
