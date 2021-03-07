@@ -1,0 +1,46 @@
+variables:
+  vmImageName: 'ubuntu-18.04'  # Azure managed agent
+
+pool:
+  vmImage: 'Ubuntu-18.04'
+
+
+stages:
+- stage: stageName
+  displayName: 'Sample CPP pipeline'
+  jobs:
+  - job: check
+    steps:
+      - task: Bash@3
+        displayName: 'Setup dependant lib'
+        inputs:
+          targetType: 'inline'
+          script: |
+            sudo apt-get update 
+            sudo apt-get install -y libgtest-dev g++ cmake cpp gcc
+            cd /usr/src/gtest
+            sudo cmake CMakeLists.txt
+            sudo make
+            sudo cp *.a /usr/lib
+
+      - task: Bash@3
+        displayName: 'build'
+        inputs:
+          targetType: 'inline'
+          script: |
+             sudo chmod +x build.sh
+             bash build.sh
+      - task: Bash@3
+        displayName: 'Testing'
+        inputs:
+          targetType: 'inline'
+          script: |
+                         cd test
+                         mkdir -p build
+                         cd build
+                         cmake .. -DCMAKE_PREFIX_PATH=../install
+                         make
+                         ./app-sample-addition-test
+      - publish: ./test/build/app-sample-addition-test
+        artifact: test-artifact
+
