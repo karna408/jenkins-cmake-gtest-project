@@ -28,7 +28,8 @@ pipeline{
                    '''
             }
         }
-        stage{
+        /*---------------------------Sonarqube SCA Stage-----------------*/
+        stage('Static Code Analysis'){
             steps{
                 withSonarQubeEnv('Sonar'){
                     sh "sonar-scanner -Dsonar.projectKey=sample-lib -Dsonar.sources=source, test, include"
