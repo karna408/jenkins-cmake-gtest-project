@@ -28,6 +28,13 @@ pipeline{
                    '''
             }
         }
+        stage{
+            steps{
+                withSonarQubeEnv('Sonar'){
+                    sh "sonar-scanner -Dsonar.projectKey=sample-lib -Dsonar.sources=source, test, include"
+                }
+            }
+        }
         /*--------------------------- Build Stage ----------------------- */
         stage('Build'){
             steps{
