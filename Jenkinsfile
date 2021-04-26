@@ -25,6 +25,7 @@ pipeline{
                    ./add
                    gcovr -r .
                    gcovr -r . --html --html-details -o index.html
+                   gcovr -r . --xml-pretty -o cobertura.xml
                    '''
             }
         }
