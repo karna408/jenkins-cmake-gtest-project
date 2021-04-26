@@ -26,9 +26,11 @@ pipeline{
                    gcovr -r .
                    gcovr -r . --html --html-details -o index.html
                    gcovr -r . --xml-pretty -o cobertura.xml
+                   cobertura autoUpdateHealth: false, autoUpdateStability: false, coberturaReportFile: 'cobertura.xml', conditionalCoverageTargets: '70, 0, 0', failUnhealthy: false, failUnstable: false, lineCoverageTargets: '80, 0, 0', maxNumberOfBuilds: 0, methodCoverageTargets: '80, 0, 0', onlyStable: false, sourceEncoding: 'ASCII', zoomCoverageChart: false
                    '''
             }
         }
+       
         /*---------------------------Sonarqube SCA Stage-----------------*/
         stage('Static Code Analysis'){
             steps{
