@@ -51,13 +51,8 @@ pipeline{
         stage('Test'){
             steps{
                  sh '''
-                    cd $WORKSPACE/test
-                    
-                    mkdir build
-                    cd build
-                    cmake .. -DCMAKE_PREFIX_PATH=../install
-                    make
-                    ./app-sample-addition-test
+                    cd $WORKSPACE
+                    sh test.sh
                  '''
               }
        }
