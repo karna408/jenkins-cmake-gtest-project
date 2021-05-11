@@ -25,7 +25,7 @@ pipeline{
         stage('Static Code Analysis'){
             steps{
                 withSonarQubeEnv('Sonar'){
-                    sh "sonar-scanner -Dsonar.projectKey=sample-lib -Dsonar.sources=."
+                    sh "sonar-scanner -Dsonar.projectKey=sample-lib -Dsonar.sources=source"
                 }
             }
         }
