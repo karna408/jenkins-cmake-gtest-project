@@ -31,6 +31,6 @@ TEST(TestingAddition, addOne) {
 
 TEST(TestingAddition, addTwo) {
     zf::sample::Addition myAddition = zf::sample::Addition();
-	    ASSERT_EQ(myAddition.addTwo(1), 3);
+	    ASSERT_EQ(myAddition.addTwo(1), 2);
 }
 
