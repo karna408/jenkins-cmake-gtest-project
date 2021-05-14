@@ -46,6 +46,12 @@ pipeline{
                     sh test.sh
                  '''
               }
+            
+            post {
+                always {
+                    junit allowEmptyResults: true, testResults: 'test/build/*.xml' 
+                }
+            }
        }
 
      }
