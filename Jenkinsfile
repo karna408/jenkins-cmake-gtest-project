@@ -19,6 +19,11 @@ pipeline{
                   sh coco.sh
                    '''
             }
+             post {
+                always {
+                    cobertura coberturaReportFile: 'cocov/cobertura.xml'
+                }
+            }
         }
        
         /*---------------------------Sonarqube SCA Stage-----------------*/
