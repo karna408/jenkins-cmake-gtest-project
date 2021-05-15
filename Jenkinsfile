@@ -62,7 +62,7 @@ pipeline{
      }
      post {
         always {
-            archiveArtifacts artifacts: 'test/build/app-sample-addition-test', fingerprint: true
+            archiveArtifacts artifacts: 'install/lib/libapp-sample-addition_lib.a', fingerprint: true
             
         }
     }
