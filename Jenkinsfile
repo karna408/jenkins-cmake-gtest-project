@@ -1,5 +1,6 @@
 pipeline{
     agent any
+    stages{
  
         /*----------------------Code Coverage Stage-------------------*/
         stage('Code Coverage'){
