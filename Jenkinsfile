@@ -54,13 +54,19 @@ pipeline{
                 }
             }
        }
-
-     }
-     post {
-        always {
-            cleanWS()
+        stage('final-step'){
+            steps{
+                 sh '''
+                    ls
+                 '''
         }
-     }
+            post {
+                always {
+                    cleanWS()
+                }
+            }
+       }
+    }
 }
 
 
