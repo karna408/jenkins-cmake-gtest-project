@@ -1,16 +1,6 @@
 pipeline{
     agent any
  
-    /*-------- CODE CLONE ------------ */
-    stages{
-        stage('git pull'){
-            steps{
-             sh 'rm -rf $WORKSPACE/*'
-            checkout ([$class: 'GitSCM', branches: [[name: '*/master']],
-                       userRemoteConfigs: [[url: 'https://github.com/karna408/jenkins-cmake-gtest-project']],
-                ])
-            }
-        }
         /*----------------------Code Coverage Stage-------------------*/
         stage('Code Coverage'){
             steps{
@@ -42,6 +32,11 @@ pipeline{
                   sh build.sh
                   '''
              }
+            post {
+               always {
+                   archiveArtifacts artifacts: 'install/lib/libapp-sample-addition_lib.a', fingerprint: true
+               }
+            }
         }
         /*    ----------------- Test Stage ------------------- */
         stage('Test'){
@@ -62,7 +57,7 @@ pipeline{
      }
      post {
         always {
-            archiveArtifacts artifacts: 'install/lib/libapp-sample-addition_lib.a', fingerprint: true
+            cleanWS()
             
         }
     }
