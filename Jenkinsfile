@@ -59,13 +59,13 @@ pipeline{
                  sh '''
                     ls
                  '''
-        }
-            post {
-                always {
-                    cleanWS()
-                }
             }
-       }
+        }
+    }
+    post {
+        always {
+             cleanWS()
+        }
     }
 }
 
