@@ -13,6 +13,7 @@ fi
 
 rm -rf build/*
 mkdir build
+g++ -c -Wall -o build/bug_test source/bug_test.cpp
 cd build
 cmake .. -DUTILS_PATH=$1
 make install
