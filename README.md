@@ -1,3 +1,6 @@
+[![Quality Gate Status](http://localhost:9000/api/project_badges/measure?project=Jenkins_CMake_Gtest&metric=alert_status)](http://localhost:9000/dashboard?id=Jenkins_CMake_Gtest)
+
+
 # jenkins-cmake-gtest-project
 #README_
 
