@@ -28,7 +28,7 @@ pipeline{
 		/*---------------------------Quality Gate Check-------------------*/
 		stage("Quality gate"){
 	        steps{
-			    waitForQualitygate abortPipeline: true
+			    waitForQualitygate abortPipeline: false
 			}	
 		}
         /*--------------------------- Build Stage ----------------------- */
