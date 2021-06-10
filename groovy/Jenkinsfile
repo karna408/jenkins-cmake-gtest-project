@@ -8,4 +8,10 @@ node{
     stage("code-Coverage"){
         sh './coco.sh'
     }
+    stage("build"){
+        sh './build.sh'
+    }
+    stage("test"){
+        sh'./test.sh'
+    }
 }
