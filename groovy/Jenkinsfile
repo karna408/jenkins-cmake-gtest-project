@@ -1,5 +1,11 @@
 node{
-    stage("code-Coverage"){
+    stage("init"){
+        cleanWs()
+        
+        checkout scm
         sh 'ls'
+    }
+    stage("code-Coverage"){
+        sh 'coco.sh'
     }
 }
