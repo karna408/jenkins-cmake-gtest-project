@@ -66,7 +66,7 @@ pipeline{
         always {
              emailext (
                  body: '${JELLY_SCRIPT,template="html"}',
-                 subject: '{env.JOB_NAME} - Build #${env.BUILD_NUMBER} ${currentBuild.result}',
+                 subject: '$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS!',
                  mimeType: 'text/html',
                  to: 'asapparsha@gmail.com', 
                  attachLog: true
