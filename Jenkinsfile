@@ -71,7 +71,13 @@ pipeline{
     }
     post {
         always {
-             cleanWs()
+             emailext (
+                 body: '${JELLY_SCRIPT,template="html"}',
+                 subject: '{env.JOB_NAME} - Build #${env.BUILD_NUMBER} ${currentBuild.result}',
+                 mimeType: 'text/html',
+                 to: 'asapparsha@gmail.com', 
+                 attchlog: true
+             )
         }
     }
 }
