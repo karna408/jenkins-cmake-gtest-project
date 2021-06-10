@@ -22,4 +22,7 @@ node{
     stage("test"){
         sh'./test.sh'
     }
+    stage("extract test results"){
+        junit allowEmptyResults: true, testResults: 'test/build/*.xml' 
+    }
 }
