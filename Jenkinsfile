@@ -71,6 +71,7 @@ pipeline{
                  to: 'asapparsha@gmail.com', 
                  attachLog: true
              )
+            cleanWs()
         }
     }
 }
