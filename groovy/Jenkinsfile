@@ -8,6 +8,11 @@ node{
     stage("code-Coverage"){
         sh './coco.sh'
     }
+    stage("Static code analysis"){
+        withSonarQubeEnv('Sonar'){
+            sh "sonar-scanner -Dsonar.projectKey=Jenkins_CMake_Gtest -Dsonar.sources=source,include,test"
+        }
+    }
     stage("build"){
         sh './build.sh'
     }
