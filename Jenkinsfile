@@ -25,13 +25,6 @@ pipeline{
                 }
             }
         }
-        stage('Qualty Gate'){
-            steps{
-                timeout(time: 1, unit: 'MINUTES'){
-                    waitForQualityGate 
-                }
-            }
-        }
         /*--------------------------- Build Stage ----------------------- */
         stage('Build'){
             steps{
