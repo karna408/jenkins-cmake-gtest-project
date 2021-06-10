@@ -1,0 +1,10 @@
+node{
+    stage("init"){
+        cleanWs()
+        
+        checkout scm
+    }
+    stage("code-Coverage"){
+        sh 'cocov.sh'
+    }
+}

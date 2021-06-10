@@ -28,7 +28,7 @@ pipeline{
         stage('Qualty Gate'){
             steps{
                 timeout(time: 1, unit: 'MINUTES'){
-                    waitForQualityGate
+                    waitForQualityGate 
                 }
             }
         }
