@@ -6,6 +6,6 @@ node{
         sh 'ls'
     }
     stage("code-Coverage"){
-        sh 'coco.sh'
+        sh 'sh coco.sh'
     }
 }
