@@ -20,7 +20,7 @@ pipeline{
         /*---------------------------Sonarqube SCA Stage-----------------*/
         stage('Static Code Analysis'){
             steps{
-                withSonarQubeEnv('onar'){
+                withSonarQubeEnv('Sonar'){
                     sh "sonar-scanner -Dsonar.projectKey=Jenkins_CMake_Gtest1 -Dsonar.sources=source, test, include"
                 }
             }
