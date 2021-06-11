@@ -5,10 +5,15 @@ pipeline{
         /*----------------------Code Coverage Stage-------------------*/
         stage('Code Coverage'){
             steps{
+                warnError('Script failed'){
+                    
                 sh '''
                   cd $WORKSPACE
                   sh coco.sh
                    '''
+                    
+                }
+
             }
              post {
                 always {
