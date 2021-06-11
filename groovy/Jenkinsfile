@@ -18,7 +18,7 @@ node{
     }
     stage("Static code analysis"){
         withSonarQubeEnv('Sonar'){
-            sh "sonar-scanner -Dsonar.projectKey=Jenkins_CMake_Gtest -Dsonar.sources=source,include,test"
+            sh "sonar-scanner -Dsonar.projectKey=Jenkins_Gtest_CMake2 -Dsonar.sources=source,include,test"
         }
     }
     stage("build"){
