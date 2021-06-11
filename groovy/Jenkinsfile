@@ -7,7 +7,7 @@ node{
     }
     stage("code-Coverage"){
         try{
-            sh './coco.sh'  
+            sh 'exit 1'  
         }catch (error) {
             currentBuild.result='UNSTABLE'
         }
