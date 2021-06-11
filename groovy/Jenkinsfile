@@ -6,7 +6,12 @@ node{
         sh 'ls'
     }
     stage("code-Coverage"){
-        sh './coco.sh'    
+        try{
+            sh './coco.sh'  
+        }catch (error) {
+            currentBuild.result='UNSTABLE'
+        }
+          
     }
     stage("Extract coverage report"){
         cobertura coberturaReportFile: 'cocov/cobertura.xml'
